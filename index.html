@@ -3,209 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>MBBS Clinical Case Challenge</title>
     <style>
-        /* Modern CSS Reset & Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --background: #f8f9fa;
+            --text: #333;
         }
 
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
         }
 
-        /* Navigation Bar */
-        nav {
-            background-color: #ffffff;
-            padding: 1rem 2rem;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2d3748;
+        h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 24px;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #3182ce;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        #timer-box {
+            background-color: var(--primary);
             color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: white;
-            color: #764ba2;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
             font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Main Content Container */
-        .container {
-            max-width: 1100px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
+            font-size: 18px;
+            min-width: 80px;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            color: #2d3748;
+            transition: background-color 0.3s;
         }
 
-        /* Features/Projects Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .urgent {
+            background-color: var(--danger) !important;
+            animation: blink 1s infinite;
         }
 
-        .card {
+        @keyframes blink {
+            50% { opacity: 0.7; }
+        }
+
+        .case-study {
+            background: #f0f4f8;
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+
+        .case-study h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
         }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            color: #2d3748;
+        th {
+            background-color: #eee;
+            color: var(--primary);
         }
 
-        /* Contact Section */
-        .contact {
-            background-color: #edf2f7;
-            padding: 4rem 2rem;
+        .question-container {
+            margin-bottom: 30px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #fff;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            background: #f1f3f5;
+            border-color: var(--secondary);
+        }
+
+        .correct {
+            background-color: #d4edda !important;
+            border-color: var(--success) !important;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: var(--danger) !important;
+            color: #721c24;
+        }
+
+        .rationale {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            display: none;
+        }
+
+        .btn-next {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            float: right;
+            display: none;
+        }
+
+        .btn-next:hover {
+            background-color: #2980b9;
+        }
+
+        .results-screen {
             text-align: center;
+            padding: 40px 0;
         }
 
-        /* Footer */
-        footer {
-            background-color: #1a202c;
-            color: #a0aec0;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav ul { display: none; } /* Keeps it simple for mobile for now */
+        .score-display {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">MyBrand</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero" id="home">
-        <h1>Welcome to My New Website</h1>
-        <p>Created with HTML, CSS, and hosted completely free on GitHub Pages.</p>
-        <a href="#about" class="btn">Explore More</a>
+<div class="container">
+    <header>
+        <h1>Internal Medicine: Clinical Vignette</h1>
+        <div id="timer-box">60s</div>
     </header>
 
-    <!-- Features / About Section -->
-    <main class="container" id="about">
-        <h2 class="section-title">What I Do</h2>
+    <div class="case-study">
+        <h2>Patient History & Physical Exam</h2>
+        <p>A 58-year-old male presents to the emergency department complaining of severe, crushing substernal chest pain that began 45 minutes ago while shoveling snow. The pain radiates to his left jaw and shoulder and is accompanied by diaphoresis, dyspnea, and mild nausea. He has a history of hypertension, type 2 diabetes mellitus, and a 30 pack-year smoking history.</p>
+        <p><strong>Vitals:</strong> BP: 145/92 mmHg, HR: 98 bpm, RR: 22 bpm, SpO2: 94% on room air.</p>
         
-        <div class="grid">
-            <div class="card">
-                <h3>Web Design</h3>
-                <p>Creating clean, modern, and user-friendly digital layouts designed to look stunning on any screen size.</p>
-            </div>
-            
-            <div class="card">
-                <h3>Development</h3>
-                <p>Writing clean HTML, CSS, and JavaScript to bring visual ideas to life seamlessly in the browser.</p>
-            </div>
-            
-            <div class="card">
-                <h3>GitHub Hosting</h3>
-                <p>Utilizing GitHub Actions and Pages to run fast, secure, and completely free static websites.</p>
-            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lab/Diagnostic Test</th>
+                    <th>Result</th>
+                    <th>Reference Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Electrocardiogram (ECG)</td>
+                    <td>ST-segment elevation >2mm in leads V1-V4</td>
+                    <td>Normal Variant</td>
+                </tr>
+                <tr>
+                    <td>Serum Troponin I</td>
+                    <td>0.85 ng/mL (Elevated)</td>
+                    <td>&lt; 0.04 ng/mL</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="quiz-space">
+        <div class="question-container">
+            <h3 id="question-text">Loading question...</h3>
+            <div class="options-list" id="options-container">
+                </div>
+            <div class="rationale" id="rationale-box"></div>
         </div>
-    </main>
+        <button class="btn-next" id="next-btn" onclick="nextQuestion()">Next Question</button>
+        <div style="clear: both;"></div>
+    </div>
+</div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p style="margin-bottom: 1.5rem;">Have a question or want to work together?</p>
-        <a href="mailto:your-email@example.com" class="btn" style="background-color: #764ba2; color: white;">Email Me</a>
-    </section>
+<script>
+    // Quiz Questions Data Structure
+    const quizData = [
+        {
+            question: "1. Based on the clinical presentation and ECG findings, what is the most immediate and appropriate diagnosis?",
+            options: [
+                "Acute Anteroseptal ST-Elevation Myocardial Infarction (STEMI)",
+                "Acute Pericarditis",
+                "Non-ST-Elevation Myocardial Infarction (NSTEMI)",
+                "Pulmonary Embolism"
+            ],
+            correct: 0,
+            rationale: "ST-elevation >2mm in leads V1-V4 specifically isolates the anterior/septal wall of the left ventricle, supplied by the Left Anterior Descending (LAD) coronary artery. Given the crushing chest pain and positive troponins, this points directly to an acute STEMI."
+        },
+        {
+            question: "2. Which coronary artery is most likely occluded in this patient?",
+            options: [
+                "Right Coronary Artery (RCA)",
+                "Left Circumflex Artery (LCx)",
+                "Left Anterior Descending Artery (LAD)",
+                "Posterior Descending Artery (PDA)"
+            ],
+            correct: 2,
+            rationale: "Leads V1 through V4 look directly at the anterior wall and septum of the heart. The Left Anterior Descending (LAD) artery is responsible for perfusing these specific regions."
+        },
+        {
+            question: "3. What is the definitive emergency management goal for this patient?",
+            options: [
+                "Intravenous beta-blockers within 24 hours",
+                "Immediate emergent Primary Percutaneous Coronary Intervention (PCI)",
+                "Outpatient stress testing evaluation",
+                "Therapeutic anticoagulation with Low-Molecular-Weight Heparin alone"
+            ],
+            correct: 1,
+            rationale: "For an acute STEMI, time is muscle. The standard of care is immediate reperfusion therapy via Primary Percutaneous Coronary Intervention (PCI) within 90 minutes of medical contact to restore myocardial blood flow."
+        }
+    ];
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 MyBrand. Built with GitHub Pages.</p>
-    </footer>
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 60; // Total quiz time in seconds
+    let answered = false;
+
+    const timerBox = document.getElementById('timer-box');
+    const questionText = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const rationaleBox = document.getElementById('rationale-box');
+    const nextBtn = document.getElementById('next-btn');
+
+    function startTimer() {
+        timer = setInterval(() => {
+            timeLeft--;
+            timerBox.innerText = timeLeft + 's';
+
+            if(timeLeft <= 15) {
+                timerBox.classList.add('urgent');
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                endQuiz(true); // End quiz due to time out
+            }
+        }, 1000);
+    }
+
+    function loadQuestion() {
+        answered = false;
+        rationaleBox.style.display = "none";
+        nextBtn.style.display = "none";
+        optionsContainer.innerHTML = "";
+
+        let currentQuestion = quizData[currentQuestionIndex];
+        questionText.innerText = currentQuestion.question;
+
+        currentQuestion.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.innerText = option;
+            button.classList.add('option-btn');
+            button.onclick = () => selectOption(button, index);
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    function selectOption(selectedButton, selectedIndex) {
+        if(answered) return; // Prevent multiple clicks
+        answered = true;
+
+        let currentQuestion = quizData[currentQuestionIndex];
+        const allButtons = optionsContainer.querySelectorAll('.option-btn');
+
+        // Disable all buttons after selection
+        allButtons.forEach(btn => btn.disabled = true);
+
+        if (selectedIndex === currentQuestion.correct) {
+            selectedButton.classList.add('correct');
+            score++;
+        } else {
+            selectedButton.classList.add('incorrect');
+            // Highlight the correct answer for learning purposes
+            allButtons[currentQuestion.correct].classList.add('correct');
+        }
+
+        // Show educational clinical rationale
+        rationaleBox.innerHTML = `<strong>Clinical Rationale:</strong> ${currentQuestion.rationale}`;
+        rationaleBox.style.display = "block";
+        nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            clearInterval(timer);
+            endQuiz(false);
+        }
+    }
+
+    function endQuiz(timedOut) {
+        const quizSpace = document.getElementById('quiz-space');
+        let message = timedOut ? "<h2>Time's Up Doctor!</h2>" : "<h2>Case Review Completed</h2>";
+        
+        quizSpace.innerHTML = `
+            <div class="results-screen">
+                ${message}
+                <p>Your performance on this diagnostic evaluation:</p>
+                <div class="score-display">${score} / ${quizData.length}</div>
+                <p>Diagnostic Accuracy: ${Math.round((score/quizData.length)*100)}%</p>
+                <button class="btn-next" style="display:inline-block; float:none; margin-top:20px;" onclick="location.reload()">Reset Case File</button>
+            </div>
+        `;
+    }
+
+    // Initialize the app
+    window.onload = () => {
+        startTimer();
+        loadQuestion();
+    };
+</script>
 
 </body>
 </html>
