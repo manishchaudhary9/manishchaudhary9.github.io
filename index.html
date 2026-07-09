@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manish Chaudhary| Personal Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#0077ff,#00b4d8);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:5px solid white;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+header h1{
+    font-size:42px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+nav{
+    background:#111;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#00b4d8;
+}
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0077ff;
+}
+
+.about p{
+    text-align:center;
+    line-height:1.8;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.skill{
+    background:#0077ff;
+    color:white;
+    padding:12px 20px;
+    border-radius:25px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    color:#0077ff;
+    text-decoration:none;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+button{
+    margin-top:20px;
+    background:#0077ff;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#005fd4;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<img src="https://via.placeholder.com/160" alt="Profile">
+
+<h1>Manish kumar Chaudhary</h1>
+
+<p>Medical Student | Traveler | Sports Player | Gaming |Drawing </p>
+
+<button onclick="scrollToContact()">Contact Me</button>
+
+</header>
+
+<nav>
+
+<a href="#about">About</a>
+
+<a href="#MBBS Quizs">MBBS Quizs</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<section id="about" class="about">
+
+<h2>About Me</h2>
+
+<p>
+Hello! I'm <strong>Manish</strong>, a medical student passionate about healthcare,
+technology, physical activities and continuous learning.
+My goal is to make a positive impact through medicine and innovation.
+</p>
+
+
+
+</section>
+
+<section id="MBBS Quizs">
+
+<h2>MBBS Quizs</h2>
+
+<div class="MBBS Quizs">
+    
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject">
+                <option value="">Select a topic</option>
+                 <option value="general">Anatomy </option>
+                 
+                <option value="support">Physiology </option>
+                <option value="support">Biochemistry</option>
+                <option value="support">Pathology</option>
+                <option value="feedback">Pharmacolgy</option>
+             <option value="general">Microbiolgy </option>
+            <option value="general">Community Medicine </option>
+             <option value="general">Forensic Medicine</option>
+                 <option value="general">Medicine </option>
+                 <option value="general">Surgery </option> 
+                 <option value="general">Obstetrics & Gynecology</option> 
+                 <option value="general">Pedriatrics </option>      <option value="general">ENT </option>
+                   <option value="general">Ophthalmology </option>  <option value="general">Orthopedics </option> <option value="general">Dermatology </option>n>
+                </select>
+
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+
+<h3>Medical Notes</h3>
+
+<p>Collection of summarized MBBS notes with diagrams and mnemonics.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Arts</h3>
+
+<p>I enjoy creating sketches and portraits in my free time.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Photography</h3>
+
+<p>Landscape, travel, and nature photography shared through social media.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<p>Email: <a href="#">manishcy9@gmail.com </a>  </p>
+
+<p>Website: <a href="#">manishchaudhary9.github.io </a>  </p>
+
+<p>
+
+<a href="#">Instagram</a> |
+
+<a href="#">GitHub</a> |
+
+<a href="#">facebook</a>
+
+</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+        button {
+            background-color: #007AFF;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1></h1>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+                <option value="">Select a topic</option>
+                <option value="general">Notes
+                </option>
+                <option value="support">Quiz
+                </option>
+                <option value="feedback">Feedback</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your message..."></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
+
+
+</section>
+
+<footer>
+
+<p>© 2026 Manish. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+function scrollToContact(){
+
+document.getElementById("contact").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
